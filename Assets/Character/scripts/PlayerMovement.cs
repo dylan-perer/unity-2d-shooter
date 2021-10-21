@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float runSpeed;
+    [SerializeField] private float speed, jumpForce, inputX, inputY;
     [SerializeField] private Animator animator;
     private Rigidbody2D rb;
 
@@ -16,15 +16,33 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 direction = new Vector2(x, y);
-        Run(direction);
+        inputX = Input.GetAxis("Horizontal");
+        inputY = Input.GetAxis("Vertical");
+
+        rb.velocity = new Vector2(inputX * speed, rb.velocity.y);
+
+        if (inputX == 0)
+        {
+            animator.SetBool("walk", false);
+            animator.SetBool("walkBack", false);
+
+
+        }
+        else if (inputX > 0)
+        {
+            animator.SetBool("walk", true);
+            animator.SetBool("walkBack", false);
+        }
+        else if (inputX < 0)
+        {
+            animator.SetBool("walkBack", true);
+            animator.SetBool("walk", false);
+        }
     }
 
     private void Run(Vector2 dir)
     {
-        rb.velocity = new Vector2(dir.x * runSpeed, rb.velocity.y);
+
     }
 
 
