@@ -10,15 +10,18 @@ public class Player : MonoBehaviour
     private Controller2D controller;
     private float jumpVelocity, gravity, velocityXSmoothing;
     private Animator animator;
-    [SerializeField] private Vector2 input; 
+    private bool isFacingRight = true;
+    private Transform playerTransfom;
+    [SerializeField] private Vector2 input;
     void Start()
     {
         controller = GetComponent<Controller2D>();
         animator = GetComponent<Animator>();
+        playerTransfom = GetComponent<Transform>();
 
         gravity = -(2 * jumpheight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        print("Gravity: " + gravity + " Jump Velocity: " + jumpVelocity);
+
     }
 
     // Update is called once per frame
@@ -37,13 +40,14 @@ public class Player : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.move(velocity * Time.deltaTime);
 
-        if(controller.collisions.left || controller.collisions.right){
+        if (controller.collisions.left || controller.collisions.right)
+        {
             velocity.x = 0f;
         }
         animator.SetFloat("xVelocity", velocity.x);
         animator.SetFloat("yVelocity", velocity.y);
         print(velocity.y);
-        print("BELOW: "+controller.collisions.below);
+        print("BELOW: " + controller.collisions.below);
     }
 
     private bool isCollidingVertically()
@@ -81,8 +85,22 @@ public class Player : MonoBehaviour
             animator.SetBool("walk", false);
             animator.SetBool("walkBack", false);
         }
+
+        if (input.x > 0 && !isFacingRight)
+        {
+            flip();
+        }
+        else if (input.x < 0 && isFacingRight)
+        {
+            flip();
+        }
     }
 
+    private void flip()
+    {
+        isFacingRight = !isFacingRight;
+        playerTransfom.localScale = new Vector3(-1 * playerTransfom.localScale.x, playerTransfom.localScale.y, playerTransfom.localScale.z);
+    }
     private void yDirectionAnimationHandler(Vector2 input)
     {
         animator.SetBool("inAir", !controller.collisions.below);
@@ -91,12 +109,13 @@ public class Player : MonoBehaviour
     private void jumpInputKey()
     {
         if (Input.GetKey(KeyCode.Space) && controller.collisions.below)
-        {   
+        {
             velocity.y = jumpVelocity;
         }
     }
 
-    public Vector2 getInput(){
+    public Vector2 getInput()
+    {
         return input;
     }
 }
