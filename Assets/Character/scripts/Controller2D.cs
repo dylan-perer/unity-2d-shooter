@@ -9,11 +9,11 @@ public class Controller2D : MonoBehaviour
     [SerializeField] float horizontalRaySpacing, verticalRaySpacing;
     [SerializeField] LayerMask collisonMask;
     public CollisionInfo collisions;
-    private BoxCollider2D playerBoxCollider;
+    public BoxCollider2D playerBoxCollider;
     private const float skinWidth = .015f;
     private RaycastOrigins raycastOrigins;
 
-    void Start()
+    void Awake()
     {
         playerBoxCollider = GetComponent<BoxCollider2D>();
         calculateRaySpacing();
