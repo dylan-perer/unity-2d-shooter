@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637698604855639026
-    m_Hash: 2648273191
+      ticks: 637705767538153250
+    m_Hash: 91922769
   m_LockFileStatus:
     m_FilePath: C:/Users/Aiden/Documents/Unity/2d-shooter/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637698604855792801
-    m_Hash: 2222264522
+      ticks: 637705767538153250
+    m_Hash: 2085482103
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
