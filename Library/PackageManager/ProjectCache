@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637705767538153250
+      ticks: 637706782362639129
     m_Hash: 91922769
   m_LockFileStatus:
     m_FilePath: C:/Users/Aiden/Documents/Unity/2d-shooter/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637705767538153250
+      ticks: 637706782362649100
     m_Hash: 2085482103
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -138,6 +138,7 @@ m_PackageAssets:
         - 2.1.5
         - 2.1.6
         - 2.1.8
+        - 2.1.9
         - 3.0.0
         - 3.1.1
         - 3.1.3
@@ -150,6 +151,7 @@ m_PackageAssets:
         - 4.0.2
         - 4.1.0
         - 4.1.1
+        - 4.1.2
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.1
@@ -164,7 +166,8 @@ m_PackageAssets:
         compatible:
         - 4.1.0
         - 4.1.1
-        verified: 4.1.1
+        - 4.1.2
+        verified: 4.1.2
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3
@@ -511,6 +514,8 @@ m_PackageAssets:
         - 1.11.2
         - 1.12.5
         - 1.13.5
+        - 1.14.1
+        - 1.15.1
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -525,6 +530,8 @@ m_PackageAssets:
         - 1.11.2
         - 1.12.5
         - 1.13.5
+        - 1.14.1
+        - 1.15.1
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -1004,9 +1011,11 @@ m_PackageAssets:
         - 1.1.26
         - 1.1.27
         - 1.1.29
+        - 1.1.30
         compatible:
         - 1.1.29
-        verified: 1.1.29
+        - 1.1.30
+        verified: 1.1.30
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -1283,12 +1292,14 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
+        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
         - 1.6.2
+        - 1.6.3
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -1304,12 +1315,14 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
+        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
         - 1.6.2
+        - 1.6.3
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -3824,6 +3837,7 @@ m_PackageAssets:
         - 3.2.9
         - 3.2.10
         - 3.2.11
+        - 3.2.13
         - 4.0.0
         - 4.0.1
         - 4.1.0
@@ -3844,6 +3858,7 @@ m_PackageAssets:
         - 5.0.6
         - 5.0.7
         - 5.0.8
+        - 5.0.9
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.1
@@ -3859,7 +3874,8 @@ m_PackageAssets:
         - 5.0.6
         - 5.0.7
         - 5.0.8
-        verified: 5.0.8
+        - 5.0.9
+        verified: 5.0.9
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3

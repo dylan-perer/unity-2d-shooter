@@ -30103,7 +30103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 58af065a7d9f5704c84b82bf62fd7bf3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcd366bac53418d43b710e0931ca38cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32080,8 +32080,10 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   input: {x: 0, y: 0}
   skeleton: {fileID: 7725423124425245626}
-  r_UpperArm: {fileID: 984799118}
-  aimOffset: -90
+  aimOffset: -0.6
+  flipOffset: 1
+  mousePosition: {x: 0, y: 0, z: 0}
+  rootPostition: {x: 0, y: 0, z: 0}
 --- !u!114 &4878830129261658703
 MonoBehaviour:
   m_ObjectHideFlags: 0

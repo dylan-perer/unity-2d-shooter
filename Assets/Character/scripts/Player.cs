@@ -23,12 +23,9 @@ public class Player : MonoBehaviour
     private IKManager2D iKManager2D;
 
     //Ik Aim
-    [SerializeField] private Transform r_UpperArm;
-    [SerializeField]
-    private float aimOffset
-     = -90f;
-    private Vector3 startingSize;
-    private Vector3 armStartingSize;
+    [SerializeField] private float aimOffset, flipOffset;
+    [SerializeField] private Vector3 mousePosition, rootPostition;
+
 
     void Start()
     {
@@ -48,9 +45,6 @@ public class Player : MonoBehaviour
         // toggleRagdoll();
         enableBodyPhysics(false);
 
-        //Ik Aim
-        startingSize = transform.localScale;
-        armStartingSize = r_UpperArm.localScale;
     }
 
     void Update()
@@ -89,13 +83,21 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         //IK AIm
-        Vector3 skelPos = skeleton.transform.position;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        print("skelPos - mousePos"+(mousePos));
-        animator.SetFloat("xAim",mousePos.x);
-        animator.SetFloat("yAim",mousePos.y);
+        animator.SetFloat("xAim", mousePosition.x);
+        animator.SetFloat("yAim", (mousePosition.y - rootPostition.y) + aimOffset);
 
+        print("skelPos - mousePos" + (mousePosition.x - rootPostition.x));
+
+        float mousePlayerDiff = mousePosition.x - rootPostition.x;
+        if (mousePlayerDiff > 0 + flipOffset && !isFacingRight)
+        {
+            flip();
+        }
+        else if (mousePlayerDiff < 0 - flipOffset && isFacingRight)
+        {
+            flip();
+        }
     }
 
     private bool isCollidingVertically()
@@ -118,6 +120,9 @@ public class Player : MonoBehaviour
 
     private void xDirectionAnimationHandler(Vector2 input)
     {
+        rootPostition = skeleton.transform.position;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (input.x > 0 && controller.collisions.below)
         {
             animator.SetBool("walk", true);
@@ -134,14 +139,14 @@ public class Player : MonoBehaviour
             animator.SetBool("walkBack", false);
         }
 
-        if (input.x > 0 && !isFacingRight)
-        {
-            flip();
-        }
-        else if (input.x < 0 && isFacingRight)
-        {
-            flip();
-        }
+        // if (input.x > 0 && !isFacingRight)
+        // {
+        //     flip();
+        // }
+        // else if (input.x < 0 && isFacingRight)
+        // {
+        //     flip();
+        // }
     }
 
     private void flip()
