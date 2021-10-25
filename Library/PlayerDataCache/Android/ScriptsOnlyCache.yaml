@@ -3,7 +3,10 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraFollow
     - Controller2D
+    - DynamicJoystick
+    - FixedJoystick
     - FpsCounter
+    - PhysicsCollisionManager
     - Player
     - ViewportHandler
     Unity.2D.Animation.Editor.dll:
@@ -53,7 +56,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
-    - UnityEditor.Experimental.Rendering.Universal.Renderer2DDataEditor
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Experimental.Rendering.Universal.Light2D
@@ -66,8 +68,11 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationBlendTree.Node
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -103,7 +108,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
     - Class: 61
+      Script: {instanceID: 0}
+    - Class: 70
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -186,6 +195,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5274}
     - Class: 114
+      Script: {instanceID: 5316}
+    - Class: 114
       Script: {instanceID: 5534}
     - Class: 114
       Script: {instanceID: 5650}
@@ -219,6 +230,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 7408}
     - Class: 114
       Script: {instanceID: 7630}
+    - Class: 114
+      Script: {instanceID: 20014}
+    - Class: 114
+      Script: {instanceID: 20026}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -236,6 +251,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 233
       Script: {instanceID: 0}
     - Class: 19719996
       Script: {instanceID: 0}
@@ -356,7 +373,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: bb541b1bc5d439dbdf752430a121c5cb
+      Hash: 62a679a703ace6713a386bcafd51a738
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1200,6 +1217,36 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 824e8d4cb47ffd88ddf959dbd4526585
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DynamicJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: 9dac16f3efc511835ac976dfae55f580
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VariableJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedJoystick
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

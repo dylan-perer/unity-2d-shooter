@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Controller2D controller;
     private float jumpVelocity, gravity, velocityXSmoothing;
     private Animator animator;
-    private bool isFacingRight = true, isRagdoll = false;
+    private bool isFacingRight = true, isRagdoll = false, touchJump = false;
     private Transform playerTransfom;
     [SerializeField] private Vector2 input;
 
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     //Ik Aim
     [SerializeField] private float aimOffset, flipOffset;
     [SerializeField] private Vector3 mousePosition, rootPostition;
+    [SerializeField] Joystick moveJoystick, aimJoystick;
     private float xAnimVelocity;
 
 
@@ -58,11 +59,18 @@ public class Player : MonoBehaviour
         {
             isCollidingVertically();
             input = asignInput();
+            input.x = moveJoystick.Horizontal;
+            input.y = aimJoystick.Horizontal;
 
             xDirectionAnimationHandler(input);
             yDirectionAnimationHandler(input);
 
             jumpInputKey();
+            if (touchJump)
+            {
+                jump();
+
+            }
 
             float targetVelocityX = input.x * xSpeed;
             velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below ? accelerationTimeground : accelerationTimeAirbone));
@@ -74,7 +82,8 @@ public class Player : MonoBehaviour
                 velocity.x = 0f;
             }
             xAnimVelocity = velocity.x;
-            if(!isFacingRight){
+            if (!isFacingRight)
+            {
                 xAnimVelocity *= -1;
             }
             animator.SetFloat("xVelocity", xAnimVelocity);
@@ -90,16 +99,27 @@ public class Player : MonoBehaviour
         //IK AIm
 
         animator.SetFloat("xAim", mousePosition.x);
-        animator.SetFloat("yAim", (mousePosition.y - rootPostition.y) + aimOffset);
+        animator.SetFloat("yAim", aimJoystick.Vertical);
 
-        print("skelPos - mousePos" + (mousePosition.x - rootPostition.x));
+        //  animator.SetFloat("yAim", (mousePosition.y - rootPostition.y) + aimOffset);
 
-        float mousePlayerDiff = mousePosition.x - rootPostition.x;
-        if (mousePlayerDiff > 0 + flipOffset && !isFacingRight)
+        // print("skelPos - mousePos" + (mousePosition.x - rootPostition.x));
+
+        // float mousePlayerDiff = mousePosition.x - rootPostition.x;
+        // if (mousePlayerDiff > 0 + flipOffset && !isFacingRight)
+        // {
+        //     flip();
+        // }
+        // else if (mousePlayerDiff < 0 - flipOffset && isFacingRight)
+        // {
+        //     flip();
+        // }
+
+        if (aimJoystick.Horizontal > 0 && !isFacingRight)
         {
             flip();
         }
-        else if (mousePlayerDiff < 0 - flipOffset && isFacingRight)
+        else if (aimJoystick.Horizontal < 0 && isFacingRight)
         {
             flip();
         }
@@ -148,6 +168,25 @@ public class Player : MonoBehaviour
             velocity.y = jumpVelocity;
             animator.SetBool("jump", true);
         }
+        if (moveJoystick.Vertical >= .4 && controller.collisions.below)
+        {
+            velocity.y = jumpVelocity;
+            animator.SetBool("jump", true);
+        }
+
+    }
+    private void jump()
+    {
+        if (controller.collisions.below)
+        {
+            velocity.y = jumpVelocity;
+            animator.SetBool("jump", true);
+            touchJump = false;
+        }
+    }
+    public void touchJumpButton()
+    {
+        touchJump = !touchJump;
     }
 
     public Vector2 getInput()
