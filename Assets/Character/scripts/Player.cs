@@ -6,6 +6,7 @@ using UnityEngine.U2D.IK;
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] bool mobileMode = false;
     [SerializeField] float xSpeed = 6, jumpheight = 4, timeToJumpApex = .4f, accelerationTimeground = .1f, accelerationTimeAirbone = .2f;
     [SerializeField] private Vector3 velocity;
     private Controller2D controller;
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float aimOffset, flipOffset;
     [SerializeField] private Vector3 mousePosition, rootPostition;
     [SerializeField] Joystick moveJoystick, aimJoystick;
+    [SerializeField] GameObject moveJoystickObj, aimJoystickObj;
+
     private float xAnimVelocity;
 
 
@@ -47,6 +50,13 @@ public class Player : MonoBehaviour
         // toggleRagdoll();
         enableBodyPhysics(false);
 
+        moveJoystick.enabled = mobileMode;
+        aimJoystick.enabled = mobileMode;
+
+        moveJoystickObj.SetActive(mobileMode);
+        aimJoystickObj.SetActive(mobileMode);
+
+        animator.SetBool("mobileMode", mobileMode);
     }
 
     void Update()
@@ -58,9 +68,13 @@ public class Player : MonoBehaviour
         if (!isRagdoll)
         {
             isCollidingVertically();
+
             input = asignInput();
-            input.x = moveJoystick.Horizontal;
-            input.y = aimJoystick.Horizontal;
+            if (mobileMode)
+            {
+                input.x = moveJoystick.Horizontal;
+                input.y = aimJoystick.Horizontal;
+            }
 
             xDirectionAnimationHandler(input);
             yDirectionAnimationHandler(input);
@@ -99,30 +113,36 @@ public class Player : MonoBehaviour
         //IK AIm
 
         animator.SetFloat("xAim", mousePosition.x);
-        animator.SetFloat("yAim", aimJoystick.Vertical);
 
-        //  animator.SetFloat("yAim", (mousePosition.y - rootPostition.y) + aimOffset);
-
-        // print("skelPos - mousePos" + (mousePosition.x - rootPostition.x));
-
-        // float mousePlayerDiff = mousePosition.x - rootPostition.x;
-        // if (mousePlayerDiff > 0 + flipOffset && !isFacingRight)
-        // {
-        //     flip();
-        // }
-        // else if (mousePlayerDiff < 0 - flipOffset && isFacingRight)
-        // {
-        //     flip();
-        // }
-
-        if (aimJoystick.Horizontal > 0 && !isFacingRight)
+        if (mobileMode)
         {
-            flip();
+            animator.SetFloat("yAim", aimJoystick.Vertical);
+
+            if (aimJoystick.Horizontal > 0 && !isFacingRight)
+            {
+                flip();
+            }
+            else if (aimJoystick.Horizontal < 0 && isFacingRight)
+            {
+                flip();
+            }
         }
-        else if (aimJoystick.Horizontal < 0 && isFacingRight)
+        else
         {
-            flip();
+            animator.SetFloat("yAim", (mousePosition.y - rootPostition.y) + aimOffset);
+
+
+            float mousePlayerDiff = mousePosition.x - rootPostition.x;
+            if (mousePlayerDiff > 0 + flipOffset && !isFacingRight)
+            {
+                flip();
+            }
+            else if (mousePlayerDiff < 0 - flipOffset && isFacingRight)
+            {
+                flip();
+            }
         }
+
     }
 
     private bool isCollidingVertically()
@@ -157,7 +177,6 @@ public class Player : MonoBehaviour
     }
     private void yDirectionAnimationHandler(Vector2 input)
     {
-        // animator.SetBool("inAir", !controller.collisions.below);
         animator.SetBool("jump", !controller.collisions.below);
     }
 
@@ -186,7 +205,11 @@ public class Player : MonoBehaviour
     }
     public void touchJumpButton()
     {
-        touchJump = !touchJump;
+        if (mobileMode)
+        {
+            touchJump = !touchJump;
+
+        }
     }
 
     public Vector2 getInput()
@@ -221,4 +244,9 @@ public class Player : MonoBehaviour
             capsuleCollider2D.enabled = b;
         }
     }
+
+
+
+
+
 }

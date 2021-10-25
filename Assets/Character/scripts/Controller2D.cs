@@ -5,9 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour
 {
+    [SerializeField] Transform currentSpawnPoint;
     [SerializeField] private int horizontalRayCount = 4, verticalRayCount = 4;
     [SerializeField] float horizontalRaySpacing, verticalRaySpacing;
-    [SerializeField] LayerMask collisonMask;
+    [SerializeField] LayerMask collisonMask, deathMask;
     public CollisionInfo collisions;
     public BoxCollider2D playerBoxCollider;
     private const float skinWidth = .015f;
@@ -32,6 +33,7 @@ public class Controller2D : MonoBehaviour
         raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
         raycastOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
         raycastOrigins.topRight = new Vector2(bounds.max.x, bounds.max.y);
+
 
     }
     private void calculateRaySpacing()
@@ -101,12 +103,17 @@ public class Controller2D : MonoBehaviour
         {
             Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
             rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisonMask);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisonMask | deathMask);
 
             Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 
             if (hit)
             {
+                if (hit.transform.gameObject.layer == 9)
+                {
+                    respawn();
+
+                }
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 
@@ -127,5 +134,11 @@ public class Controller2D : MonoBehaviour
             left = right = false;
         }
 
+    }
+
+
+    private void respawn()
+    {
+        gameObject.transform.position = new Vector3(currentSpawnPoint.position.x, currentSpawnPoint.position.y, gameObject.transform.position.z);
     }
 }

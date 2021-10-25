@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - UnityEngine.U2D.IK.IKManager2D
     - UnityEngine.U2D.IK.LimbSolver2D
     Unity.2D.Tilemap.Editor.dll:
+    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -65,10 +66,11 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.ShaderGraph.Editor.dll:
+    - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationBlendTree.Node
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
@@ -137,103 +139,103 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1596}
     - Class: 114
-      Script: {instanceID: 1670}
+      Script: {instanceID: 1672}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1726}
     - Class: 114
-      Script: {instanceID: 2212}
+      Script: {instanceID: 2070}
     - Class: 114
-      Script: {instanceID: 2304}
+      Script: {instanceID: 2218}
     - Class: 114
-      Script: {instanceID: 2352}
+      Script: {instanceID: 2310}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2358}
     - Class: 114
-      Script: {instanceID: 2608}
+      Script: {instanceID: 2400}
     - Class: 114
-      Script: {instanceID: 2850}
+      Script: {instanceID: 2614}
     - Class: 114
-      Script: {instanceID: 3056}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 3062}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3128}
     - Class: 114
-      Script: {instanceID: 3208}
+      Script: {instanceID: 3190}
     - Class: 114
-      Script: {instanceID: 3218}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3228}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 3270}
+      Script: {instanceID: 3234}
     - Class: 114
-      Script: {instanceID: 3390}
+      Script: {instanceID: 3276}
     - Class: 114
-      Script: {instanceID: 3500}
+      Script: {instanceID: 3396}
     - Class: 114
-      Script: {instanceID: 3574}
+      Script: {instanceID: 3506}
     - Class: 114
-      Script: {instanceID: 3798}
+      Script: {instanceID: 3580}
     - Class: 114
-      Script: {instanceID: 3902}
+      Script: {instanceID: 3804}
     - Class: 114
-      Script: {instanceID: 3904}
+      Script: {instanceID: 3908}
     - Class: 114
-      Script: {instanceID: 4206}
+      Script: {instanceID: 3910}
     - Class: 114
-      Script: {instanceID: 4944}
+      Script: {instanceID: 4212}
     - Class: 114
-      Script: {instanceID: 4988}
+      Script: {instanceID: 4786}
     - Class: 114
-      Script: {instanceID: 5002}
+      Script: {instanceID: 4956}
     - Class: 114
-      Script: {instanceID: 5062}
+      Script: {instanceID: 5000}
     - Class: 114
-      Script: {instanceID: 5250}
+      Script: {instanceID: 5016}
     - Class: 114
-      Script: {instanceID: 5252}
+      Script: {instanceID: 5076}
     - Class: 114
-      Script: {instanceID: 5274}
+      Script: {instanceID: 5264}
     - Class: 114
-      Script: {instanceID: 5316}
+      Script: {instanceID: 5266}
     - Class: 114
-      Script: {instanceID: 5534}
+      Script: {instanceID: 5288}
     - Class: 114
-      Script: {instanceID: 5650}
+      Script: {instanceID: 5330}
     - Class: 114
-      Script: {instanceID: 5788}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5856}
+      Script: {instanceID: 5664}
     - Class: 114
-      Script: {instanceID: 5862}
+      Script: {instanceID: 5802}
     - Class: 114
-      Script: {instanceID: 5962}
+      Script: {instanceID: 5870}
     - Class: 114
-      Script: {instanceID: 5996}
+      Script: {instanceID: 5876}
     - Class: 114
-      Script: {instanceID: 6040}
+      Script: {instanceID: 5976}
     - Class: 114
-      Script: {instanceID: 6106}
+      Script: {instanceID: 6010}
     - Class: 114
-      Script: {instanceID: 6114}
+      Script: {instanceID: 6054}
     - Class: 114
-      Script: {instanceID: 6210}
+      Script: {instanceID: 6120}
     - Class: 114
-      Script: {instanceID: 6344}
+      Script: {instanceID: 6128}
     - Class: 114
-      Script: {instanceID: 6454}
+      Script: {instanceID: 6224}
     - Class: 114
-      Script: {instanceID: 6510}
+      Script: {instanceID: 6358}
     - Class: 114
-      Script: {instanceID: 7100}
+      Script: {instanceID: 6468}
     - Class: 114
-      Script: {instanceID: 7408}
+      Script: {instanceID: 6524}
     - Class: 114
-      Script: {instanceID: 7630}
+      Script: {instanceID: 7118}
     - Class: 114
-      Script: {instanceID: 20014}
+      Script: {instanceID: 7426}
     - Class: 114
-      Script: {instanceID: 20026}
+      Script: {instanceID: 7648}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -355,10 +357,22 @@ ScriptsOnlyBuild:
     className: WhiteBalance
   - hash:
       serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedJoystick
+  - hash:
+      serializedVersion: 2
       Hash: 6da05449502c54a7bf3cc65b493806ee
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: RenderObjects
+  - hash:
+      serializedVersion: 2
+      Hash: 9dac16f3efc511835ac976dfae55f580
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VariableJoystick
   - hash:
       serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
@@ -373,7 +387,7 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 62a679a703ace6713a386bcafd51a738
+      Hash: 4577bc86421b63f048132d76a76d9156
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -589,7 +603,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggleHistory
   - hash:
       serializedVersion: 2
-      Hash: 0ab06a1583b886ab684c6e6a6f06cf22
+      Hash: 261a5fa605a93999afa4ee6d93db18d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Controller2D
@@ -763,6 +777,12 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 824e8d4cb47ffd88ddf959dbd4526585
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DynamicJoystick
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -809,6 +829,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: HorizontalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joystick
   - hash:
       serializedVersion: 2
       Hash: 7dbf450932234158be58ca2027563dcb
@@ -1087,6 +1113,12 @@ ScriptsOnlyBuild:
     className: MirrorAnimation
   - hash:
       serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingJoystick
+  - hash:
+      serializedVersion: 2
       Hash: 87cef3c82381dc586f6772c3e27561b6
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
@@ -1219,34 +1251,10 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   - hash:
       serializedVersion: 2
-      Hash: 824e8d4cb47ffd88ddf959dbd4526585
+      Hash: aef9386513e10c2b58b4c2172faf4e3c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DynamicJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FloatingJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: 9dac16f3efc511835ac976dfae55f580
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: VariableJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Joystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FixedJoystick
+    className: DeathCollider
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
