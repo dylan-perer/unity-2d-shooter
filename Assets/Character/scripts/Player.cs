@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     //Ik Aim
     [SerializeField] private float aimOffset, flipOffset;
     [SerializeField] private Vector3 mousePosition, rootPostition;
+    private float xAnimVelocity;
 
 
     void Start()
@@ -72,7 +73,11 @@ public class Player : MonoBehaviour
             {
                 velocity.x = 0f;
             }
-            animator.SetFloat("xVelocity", velocity.x);
+            xAnimVelocity = velocity.x;
+            if(!isFacingRight){
+                xAnimVelocity *= -1;
+            }
+            animator.SetFloat("xVelocity", xAnimVelocity);
             animator.SetFloat("yVelocity", velocity.y);
 
         }
@@ -123,30 +128,6 @@ public class Player : MonoBehaviour
         rootPostition = skeleton.transform.position;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (input.x > 0 && controller.collisions.below)
-        {
-            animator.SetBool("walk", true);
-            animator.SetBool("walkBack", false);
-        }
-        else if (input.x < 0 && controller.collisions.below)
-        {
-            animator.SetBool("walkBack", true);
-            animator.SetBool("walk", false);
-        }
-        else
-        {
-            animator.SetBool("walk", false);
-            animator.SetBool("walkBack", false);
-        }
-
-        // if (input.x > 0 && !isFacingRight)
-        // {
-        //     flip();
-        // }
-        // else if (input.x < 0 && isFacingRight)
-        // {
-        //     flip();
-        // }
     }
 
     private void flip()
