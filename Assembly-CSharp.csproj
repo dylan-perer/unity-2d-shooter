@@ -47,11 +47,12 @@
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
      <Compile Include="Assets\Character\scripts\PhysicsCollisionManager.cs" />
+     <Compile Include="Assets\HelperScripts\InputWrapper.cs" />
      <Compile Include="Assets\Character\scripts\RagdollManager.cs" />
      <Compile Include="Assets\Character\scripts\MirrorAnimation.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\world\Scripts\ParallaxBG.cs" />
-     <Compile Include="Assets\HelperScripts\InputWrapper.cs" />
+     <Compile Include="Assets\world\Scripts\BackgroundLoop.cs" />
     <Reference Include="UnityEngine">
         <HintPath>H:\Software\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
