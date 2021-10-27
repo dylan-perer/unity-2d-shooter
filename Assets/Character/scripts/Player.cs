@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool isFacingRight = true, isRagdoll = false, touchJump = false;
     private Transform playerTransfom;
     [SerializeField] private Vector2 input;
+    [SerializeField] private Vector2 jumpUiScreenMultiplier, jumpUiSize;
 
     //Ragdoll
     [SerializeField] private Transform skeleton;
@@ -180,18 +181,46 @@ public class Player : MonoBehaviour
         animator.SetBool("jump", !controller.collisions.below);
     }
 
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = new Color(1, 0, 0, .5f);
+    //     Gizmos.DrawCube(new Vector3(Screen.width * jumpUiScreenMultiplier.x - (jumpUiSize.x / 2), Screen.height * jumpUiScreenMultiplier.y), new Vector3(jumpUiSize.x, jumpUiSize.y));
+    // }
+
     private void jumpInputKey()
     {
+        //Touch controll
+        if (Input.touchCount > 0 && controller.collisions.below)
+        {
+
+            Rect r = new Rect(
+             Screen.width * jumpUiScreenMultiplier.x, Screen.height * jumpUiScreenMultiplier.y,
+             Screen.width * jumpUiSize.x, Screen.height * jumpUiSize.y);
+            foreach (var touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    var pos = touch.position;
+                    pos.y = Screen.height - pos.y;  // must invert Y position
+
+                    if (r.Contains(pos))
+                    {
+                        jump();
+                    }
+                }
+            }
+        }
+
         if (Input.GetKey(KeyCode.Space) && controller.collisions.below)
         {
-            velocity.y = jumpVelocity;
-            animator.SetBool("jump", true);
+            jump();
         }
-        if (moveJoystick.Vertical >= .4 && controller.collisions.below)
-        {
-            velocity.y = jumpVelocity;
-            animator.SetBool("jump", true);
-        }
+        // if (moveJoystick.Vertical >= .4 && controller.collisions.below)
+        // {
+        //     velocity.y = jumpVelocity;
+        //     animator.SetBool("jump", true);
+        // }
+
 
     }
     private void jump()
@@ -200,15 +229,6 @@ public class Player : MonoBehaviour
         {
             velocity.y = jumpVelocity;
             animator.SetBool("jump", true);
-            touchJump = false;
-        }
-    }
-    public void touchJumpButton()
-    {
-        if (mobileMode)
-        {
-            touchJump = !touchJump;
-
         }
     }
 
