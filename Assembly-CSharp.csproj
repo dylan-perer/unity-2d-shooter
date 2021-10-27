@@ -39,6 +39,7 @@
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
      <Compile Include="Assets\Character\scripts\Player.cs" />
+     <Compile Include="Assets\world\tiles\DeathCollider.cs" />
      <Compile Include="Assets\world\Scripts\ViewportHandler.cs" />
      <Compile Include="Assets\world\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Character\scripts\Controller2D.cs" />
@@ -49,7 +50,7 @@
      <Compile Include="Assets\Character\scripts\RagdollManager.cs" />
      <Compile Include="Assets\Character\scripts\MirrorAnimation.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-     <Compile Include="Assets\world\tiles\DeathCollider.cs" />
+     <Compile Include="Assets\world\Scripts\ParallaxBG.cs" />
     <Reference Include="UnityEngine">
         <HintPath>H:\Software\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
